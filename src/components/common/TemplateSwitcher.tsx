@@ -1,0 +1,126 @@
+import React, { useState } from 'react';
+import { DeviceMobile, DeviceTablet, Desktop, Sparkle, Crown, Wind, BookOpen, CaretDown, CaretUp } from '@phosphor-icons/react';
+
+export type TemplateId = 'heritage' | 'modern' | 'editorial';
+export type ViewportMode = 'responsive' | 'mobile' | 'tablet';
+
+interface TemplateSwitcherProps {
+  currentTemplate: TemplateId;
+  onSelectTemplate: (template: TemplateId) => void;
+  viewportMode: ViewportMode;
+  onSelectViewport: (mode: ViewportMode) => void;
+}
+
+export const TemplateSwitcher: React.FC<TemplateSwitcherProps> = ({
+  currentTemplate,
+  onSelectTemplate,
+  viewportMode,
+  onSelectViewport
+}) => {
+  const [isExpanded, setIsExpanded] = useState(true);
+
+  const templates: { id: TemplateId; name: string; subtitle: string; icon: React.ReactNode; badge: string; color: string }[] = [
+    {
+      id: 'heritage',
+      name: 'Template 1: Heritage Luxe',
+      subtitle: 'Traditional Silk & Gold Luxury',
+      icon: <Crown size={16} weight="fill" />,
+      badge: 'Deep Maroon & Gold',
+      color: '#4A0E17'
+    },
+    {
+      id: 'modern',
+      name: 'Template 2: Modern Minimal',
+      subtitle: 'Urban Ethnic Chic & Fast App UX',
+      icon: <Wind size={16} weight="fill" />,
+      badge: 'Sage, Blush & Charcoal',
+      color: '#E14936'
+    },
+    {
+      id: 'editorial',
+      name: 'Template 3: Boutique Editorial',
+      subtitle: 'High-Fashion Magazine Storytelling',
+      icon: <BookOpen size={16} weight="fill" />,
+      badge: 'Terracotta, Beige & Rust',
+      color: '#B85233'
+    }
+  ];
+
+  return (
+    <aside className="template-switcher-bar" aria-label="Template and Device Simulator Controls">
+      <div className="switcher-inner">
+        {/* Brand label & toggle */}
+        <div className="switcher-brand-col">
+          <div className="switcher-brand-title">
+            <span className="switcher-brand-dot"></span>
+            <strong>BOUTIQUE TEMPLATES</strong>
+            <span className="switcher-tag">Client Preview</span>
+          </div>
+          <button
+            className="switcher-toggle-collapse"
+            onClick={() => setIsExpanded(!isExpanded)}
+            title={isExpanded ? 'Collapse switcher' : 'Expand switcher'}
+          >
+            {isExpanded ? <CaretUp size={16} weight="bold" /> : <CaretDown size={16} weight="bold" />}
+          </button>
+        </div>
+
+        {isExpanded && (
+          <div className="switcher-controls-row">
+            {/* Template Selector Tabs */}
+            <div className="switcher-tabs-group" role="tablist">
+              {templates.map((tmpl) => (
+                <button
+                  key={tmpl.id}
+                  role="tab"
+                  aria-selected={currentTemplate === tmpl.id}
+                  className={`switcher-tab-btn ${currentTemplate === tmpl.id ? 'is-active' : ''}`}
+                  onClick={() => onSelectTemplate(tmpl.id)}
+                >
+                  <span className="tab-icon-wrap" style={{ color: tmpl.color }}>
+                    {tmpl.icon}
+                  </span>
+                  <div className="tab-text-wrap">
+                    <span className="tab-name">{tmpl.name}</span>
+                    <span className="tab-sub">{tmpl.badge}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            {/* Device Viewport Preview Simulators */}
+            <div className="switcher-viewport-group">
+              <span className="viewport-label">Device:</span>
+              <button
+                className={`viewport-btn ${viewportMode === 'mobile' ? 'is-active' : ''}`}
+                onClick={() => onSelectViewport('mobile')}
+                title="Preview Mobile Screen (390px iPhone)"
+              >
+                <DeviceMobile size={18} weight={viewportMode === 'mobile' ? 'fill' : 'regular'} />
+                <span>Mobile</span>
+              </button>
+
+              <button
+                className={`viewport-btn ${viewportMode === 'tablet' ? 'is-active' : ''}`}
+                onClick={() => onSelectViewport('tablet')}
+                title="Preview Tablet Screen (768px iPad)"
+              >
+                <DeviceTablet size={18} weight={viewportMode === 'tablet' ? 'fill' : 'regular'} />
+                <span>Tablet</span>
+              </button>
+
+              <button
+                className={`viewport-btn ${viewportMode === 'responsive' ? 'is-active' : ''}`}
+                onClick={() => onSelectViewport('responsive')}
+                title="Full Responsive View"
+              >
+                <Desktop size={18} weight={viewportMode === 'responsive' ? 'fill' : 'regular'} />
+                <span>Full</span>
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </aside>
+  );
+};
