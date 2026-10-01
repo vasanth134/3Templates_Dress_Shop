@@ -1,21 +1,16 @@
 import React, { useState } from 'react';
-import { DeviceMobile, DeviceTablet, Desktop, Sparkle, Crown, Wind, BookOpen, CaretDown, CaretUp } from '@phosphor-icons/react';
+import { Crown, Wind, BookOpen, CaretDown, CaretUp } from '@phosphor-icons/react';
 
 export type TemplateId = 'heritage' | 'modern' | 'editorial';
-export type ViewportMode = 'responsive' | 'mobile' | 'tablet';
 
 interface TemplateSwitcherProps {
   currentTemplate: TemplateId;
   onSelectTemplate: (template: TemplateId) => void;
-  viewportMode: ViewportMode;
-  onSelectViewport: (mode: ViewportMode) => void;
 }
 
 export const TemplateSwitcher: React.FC<TemplateSwitcherProps> = ({
   currentTemplate,
-  onSelectTemplate,
-  viewportMode,
-  onSelectViewport
+  onSelectTemplate
 }) => {
   const [isExpanded, setIsExpanded] = useState(true);
 
@@ -50,7 +45,7 @@ export const TemplateSwitcher: React.FC<TemplateSwitcherProps> = ({
   ];
 
   return (
-    <aside className="template-switcher-bar" aria-label="Template and Device Simulator Controls">
+    <aside className="template-switcher-bar" aria-label="Template Switcher Controls">
       <div className="switcher-inner">
         {/* Brand label & toggle */}
         <div className="switcher-brand-col">
@@ -92,37 +87,6 @@ export const TemplateSwitcher: React.FC<TemplateSwitcherProps> = ({
                   </div>
                 </button>
               ))}
-            </div>
-
-            {/* Device Viewport Preview Simulators */}
-            <div className="switcher-viewport-group">
-              <span className="viewport-label">Device:</span>
-              <button
-                className={`viewport-btn ${viewportMode === 'mobile' ? 'is-active' : ''}`}
-                onClick={() => onSelectViewport('mobile')}
-                title="Preview Mobile Screen (390px iPhone)"
-              >
-                <DeviceMobile size={18} weight={viewportMode === 'mobile' ? 'fill' : 'regular'} />
-                <span>Mobile</span>
-              </button>
-
-              <button
-                className={`viewport-btn ${viewportMode === 'tablet' ? 'is-active' : ''}`}
-                onClick={() => onSelectViewport('tablet')}
-                title="Preview Tablet Screen (768px iPad)"
-              >
-                <DeviceTablet size={18} weight={viewportMode === 'tablet' ? 'fill' : 'regular'} />
-                <span>Tablet</span>
-              </button>
-
-              <button
-                className={`viewport-btn ${viewportMode === 'responsive' ? 'is-active' : ''}`}
-                onClick={() => onSelectViewport('responsive')}
-                title="Full Responsive View"
-              >
-                <Desktop size={18} weight={viewportMode === 'responsive' ? 'fill' : 'regular'} />
-                <span>Full</span>
-              </button>
             </div>
           </div>
         )}
