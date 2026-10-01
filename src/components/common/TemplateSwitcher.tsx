@@ -19,10 +19,11 @@ export const TemplateSwitcher: React.FC<TemplateSwitcherProps> = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(true);
 
-  const templates: { id: TemplateId; name: string; subtitle: string; icon: React.ReactNode; badge: string; color: string }[] = [
+  const templates: { id: TemplateId; name: string; shortName: string; subtitle: string; icon: React.ReactNode; badge: string; color: string }[] = [
     {
       id: 'heritage',
       name: 'Template 1: Heritage Luxe',
+      shortName: '1. Heritage Luxe',
       subtitle: 'Traditional Silk & Gold Luxury',
       icon: <Crown size={16} weight="fill" />,
       badge: 'Deep Maroon & Gold',
@@ -31,6 +32,7 @@ export const TemplateSwitcher: React.FC<TemplateSwitcherProps> = ({
     {
       id: 'modern',
       name: 'Template 2: Modern Minimal',
+      shortName: '2. Modern Minimal',
       subtitle: 'Urban Ethnic Chic & Fast App UX',
       icon: <Wind size={16} weight="fill" />,
       badge: 'Sage, Blush & Charcoal',
@@ -39,6 +41,7 @@ export const TemplateSwitcher: React.FC<TemplateSwitcherProps> = ({
     {
       id: 'editorial',
       name: 'Template 3: Boutique Editorial',
+      shortName: '3. Boutique Editorial',
       subtitle: 'High-Fashion Magazine Storytelling',
       icon: <BookOpen size={16} weight="fill" />,
       badge: 'Terracotta, Beige & Rust',
@@ -81,7 +84,10 @@ export const TemplateSwitcher: React.FC<TemplateSwitcherProps> = ({
                     {tmpl.icon}
                   </span>
                   <div className="tab-text-wrap">
-                    <span className="tab-name">{tmpl.name}</span>
+                    <span className="tab-name">
+                      <span className="tab-name-desktop">{tmpl.name}</span>
+                      <span className="tab-name-mobile">{tmpl.shortName}</span>
+                    </span>
                     <span className="tab-sub">{tmpl.badge}</span>
                   </div>
                 </button>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MagnifyingGlass, Heart, Bag, User, Sparkle } from '@phosphor-icons/react';
+import { MagnifyingGlass, Heart, Bag, List, X, ArrowRight, ChatTeardropDots } from '@phosphor-icons/react';
 
 interface ModernHeaderProps {
   wishlistCount: number;
@@ -15,6 +15,7 @@ export const ModernHeader: React.FC<ModernHeaderProps> = ({
   onOpenWishlist
 }) => {
   const [activeNav, setActiveNav] = useState('New In');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = ['New In', 'Occasions', 'Best Sellers', 'Lookbook', 'Drape Guide'];
 
@@ -27,10 +28,25 @@ export const ModernHeader: React.FC<ModernHeaderProps> = ({
 
       <header className="modern-header">
         <div className="modern-header-container">
-          {/* Brand Logo */}
-          <div className="modern-brand-logo">
-            <span className="modern-logo-text">AURA</span>
-            <span className="modern-logo-sub">STUDIO</span>
+          <div className="modern-header-left">
+            {/* Mobile Menu Toggle Button */}
+            <button
+              className="modern-mobile-menu-btn"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X size={22} weight="bold" /> : <List size={22} weight="bold" />}
+            </button>
+
+            {/* Brand Logo */}
+            <div
+              className="modern-brand-logo"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
+              <span className="modern-logo-text">AURA</span>
+              <span className="modern-logo-sub">STUDIO</span>
+            </div>
           </div>
 
           {/* Desktop Clean Sans Nav */}
@@ -49,7 +65,7 @@ export const ModernHeader: React.FC<ModernHeaderProps> = ({
 
           {/* Utility Action Icons */}
           <div className="modern-header-tools">
-            <button className="modern-tool-btn" aria-label="Search collection">
+            <button className="modern-tool-btn modern-search-btn" aria-label="Search collection">
               <MagnifyingGlass size={20} weight="regular" />
             </button>
 
@@ -72,6 +88,67 @@ export const ModernHeader: React.FC<ModernHeaderProps> = ({
             </button>
           </div>
         </div>
+
+        {/* Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div
+            className="modern-mobile-drawer-backdrop"
+            onClick={() => setMobileMenuOpen(false)}
+            role="dialog"
+            aria-modal="true"
+          >
+            <div className="modern-mobile-drawer" onClick={(e) => e.stopPropagation()}>
+              <div className="modern-mobile-drawer-header">
+                <div className="modern-brand-logo">
+                  <span className="modern-logo-text">AURA</span>
+                  <span className="modern-logo-sub">STUDIO</span>
+                </div>
+                <button
+                  className="modern-mobile-drawer-close"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="Close menu"
+                >
+                  <X size={20} weight="bold" />
+                </button>
+              </div>
+
+              <nav className="modern-mobile-nav-list" aria-label="Mobile Navigation">
+                {navItems.map((item) => (
+                  <a
+                    key={item}
+                    href={`#modern-${item.toLowerCase().replace(/\s+/g, '-')}`}
+                    className={`modern-mobile-nav-item ${activeNav === item ? 'is-active' : ''}`}
+                    onClick={() => {
+                      setActiveNav(item);
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    <span>{item}</span>
+                    <ArrowRight size={16} weight="bold" className="mobile-nav-arrow" />
+                  </a>
+                ))}
+              </nav>
+
+              <div className="modern-mobile-drawer-footer">
+                <div className="drawer-contact-card">
+                  <span className="drawer-contact-title">Need Styling Advice?</span>
+                  <p className="drawer-contact-desc">
+                    Connect directly with our senior saree stylist on WhatsApp.
+                  </p>
+                  <a
+                    href="https://wa.me/919876543210?text=Hi%20AURA%20Studio%20Stylist%2C%20I%20would%20like%20assistance%20with%20your%20saree%20collection."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="modern-drawer-wa-btn"
+                  >
+                    <ChatTeardropDots size={18} weight="fill" />
+                    <span>Chat with Stylist</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
     </>
   );

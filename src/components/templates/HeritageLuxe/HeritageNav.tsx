@@ -80,9 +80,10 @@ export const HeritageNav: React.FC<HeritageNavProps> = ({ onOpenEnquiry }) => {
 
           {/* Quick Consultation CTA */}
           <div className="heritage-header-actions">
-            <button className="heritage-consult-btn" onClick={onOpenEnquiry}>
+            <button className="heritage-consult-btn" onClick={onOpenEnquiry} aria-label="Boutique Enquiry">
               <Sparkle size={15} weight="fill" />
-              <span>Boutique Enquiry</span>
+              <span className="consult-btn-text">Boutique Enquiry</span>
+              <span className="consult-btn-mobile">Enquire</span>
             </button>
           </div>
         </div>

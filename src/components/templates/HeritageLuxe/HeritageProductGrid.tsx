@@ -76,6 +76,12 @@ export const HeritageProductGrid: React.FC<HeritageProductGridProps> = ({
                     <span>Tap to Zoom Weave</span>
                   </div>
                 </div>
+
+                {/* Subtle mobile-only zoom indicator */}
+                <div className="prod-mobile-zoom-pill">
+                  <MagnifyingGlassPlus size={12} weight="bold" />
+                  <span>Zoom</span>
+                </div>
               </div>
 
               {/* Card Meta & Simple Enquiry CTA */}

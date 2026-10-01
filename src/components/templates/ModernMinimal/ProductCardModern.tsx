@@ -42,7 +42,8 @@ export const ProductCardModern: React.FC<ProductCardModernProps> = ({
 
         {/* Angle indicator pill */}
         <div className="modern-angle-pill">
-          <span>{isSwapped ? 'Pallu & Back Angle' : 'Front Drape (Tap/Hover)'}</span>
+          <span className="angle-pill-desktop">{isSwapped ? 'Pallu Angle' : 'Front Drape (Tap)'}</span>
+          <span className="angle-pill-mobile">{isSwapped ? 'Pallu' : 'Front'}</span>
         </div>
 
         {/* Top Badges */}
@@ -63,16 +64,17 @@ export const ProductCardModern: React.FC<ProductCardModernProps> = ({
           <Heart size={18} weight={isWishlisted ? 'fill' : 'regular'} />
         </button>
 
-        {/* Quick View Button on Card Hover */}
+        {/* Quick View Button on Card */}
         <button
           className="modern-quick-view-btn"
           onClick={(e) => {
             e.stopPropagation();
             onQuickView(product);
           }}
+          aria-label={`Quick view ${product.name}`}
         >
           <Eye size={16} weight="bold" />
-          <span>Quick View</span>
+          <span className="quick-view-text">Quick View</span>
         </button>
       </div>
 
@@ -101,9 +103,10 @@ export const ProductCardModern: React.FC<ProductCardModernProps> = ({
             className="modern-add-btn"
             onClick={() => onAddToCart(product)}
             title="Add to shopping bag"
+            aria-label={`Add ${product.name} to shopping bag`}
           >
             <Bag size={16} weight="bold" />
-            <span>Add</span>
+            <span className="add-btn-text">Add</span>
           </button>
         </div>
       </div>

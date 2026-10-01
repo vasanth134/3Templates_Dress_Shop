@@ -134,6 +134,24 @@
   opacity: 0.6;
 }
 
+@media (max-width: 640px) {
+  .heritage-top-ribbon {
+    padding: 6px 12px;
+    font-size: 10px;
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .heritage-top-ribbon::-webkit-scrollbar {
+    display: none;
+  }
+  .ribbon-content {
+    flex-wrap: nowrap;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+}
+
 /* ==========================================================================
    Header & Navigation
    ========================================================================== */
@@ -155,6 +173,13 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 16px;
+}
+
+@media (max-width: 640px) {
+  .heritage-header-container {
+    height: 62px;
+    padding: 0 12px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -183,6 +208,15 @@
 
 .heritage-hamburger-btn:hover {
   background: rgba(74, 14, 23, 0.05);
+}
+
+@media (max-width: 640px) {
+  .heritage-hamburger-btn {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -215,6 +249,17 @@
   font-weight: 800;
   line-height: 1.1;
   color: var(--hl-maroon);
+}
+
+@media (max-width: 640px) {
+  .heritage-brand-name {
+    font-size: 17px;
+    letter-spacing: 0.12em;
+  }
+  .heritage-logo-pre, .heritage-logo-sub {
+    font-size: 7px;
+    letter-spacing: 0.14em;
+  }
 }
 
 @media (min-width: 768px) {
@@ -290,6 +335,13 @@
   gap: 12px;
 }
 
+.consult-btn-mobile {
+  display: none;
+}
+.consult-btn-text {
+  display: inline;
+}
+
 .heritage-consult-btn {
   display: flex;
   align-items: center;
@@ -310,6 +362,20 @@
 .heritage-consult-btn:hover {
   background: var(--hl-maroon-dark);
   box-shadow: 0 3px 12px rgba(74, 14, 23, 0.25);
+}
+
+@media (max-width: 640px) {
+  .heritage-consult-btn {
+    padding: 7px 11px;
+    font-size: 11px;
+    gap: 4px;
+  }
+  .consult-btn-text {
+    display: none;
+  }
+  .consult-btn-mobile {
+    display: inline;
+  }
 }
 
 /* Mobile Fullscreen Drawer */
@@ -557,6 +623,14 @@
   margin: 0 0 18px;
 }
 
+@media (max-width: 640px) {
+  .heritage-hero-title {
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+}
+
 @media (min-width: 768px) {
   .heritage-hero-title {
     font-size: 54px;
@@ -588,6 +662,13 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
+@media (max-width: 640px) {
+  .heritage-hero-tagline {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+}
+
 @media (min-width: 768px) {
   .heritage-hero-tagline {
     font-size: 18px;
@@ -602,6 +683,15 @@
   flex-wrap: wrap;
   width: 100%;
   margin-bottom: 40px;
+}
+
+@media (max-width: 640px) {
+  .heritage-hero-ctas {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
 }
 
 .heritage-btn-primary {
@@ -623,6 +713,14 @@
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(212, 175, 55, 0.4);
   transition: all 0.25s ease;
+}
+
+@media (max-width: 640px) {
+  .heritage-btn-primary, .heritage-btn-secondary {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 18px;
+  }
 }
 
 .heritage-btn-primary:hover {
@@ -667,10 +765,26 @@
   font-weight: 500;
 }
 
+@media (max-width: 640px) {
+  .heritage-hero-hallmarks {
+    gap: 8px;
+  }
+}
+
 .hallmark-item {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .hallmark-item {
+    font-size: 11px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+  }
 }
 
 .hallmark-divider {
@@ -679,6 +793,12 @@
   background: var(--hl-gold);
   border-radius: 50%;
   opacity: 0.6;
+}
+
+@media (max-width: 640px) {
+  .hallmark-divider {
+    display: none;
+  }
 }
 
 /* ==========================================================================
@@ -691,9 +811,21 @@
   margin-bottom: 32px;
 }
 
+@media (max-width: 640px) {
+  .arrivals-header-row {
+    margin-bottom: 18px;
+  }
+}
+
 .carousel-nav-controls {
   display: flex;
   gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .carousel-nav-controls {
+    display: none;
+  }
 }
 
 .carousel-control-btn {
@@ -745,6 +877,12 @@
   overflow: hidden;
   box-shadow: var(--hl-shadow-subtle);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (max-width: 640px) {
+  .arrival-card {
+    flex: 0 0 240px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -918,13 +1056,14 @@
 
 .fabric-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
 @media (min-width: 640px) {
   .fabric-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
@@ -990,6 +1129,27 @@
 
 .fabric-card-info {
   padding: 18px;
+}
+
+@media (max-width: 639px) {
+  .fabric-card-info {
+    padding: 12px 10px;
+  }
+  .fabric-name {
+    font-size: 15px;
+    margin: 0 0 4px;
+  }
+  .fabric-description {
+    display: none;
+  }
+  .fabric-meta {
+    font-size: 9px;
+    margin-bottom: 4px;
+  }
+  .fabric-link-wrap {
+    font-size: 11px;
+    margin-top: 6px;
+  }
 }
 
 .fabric-meta {
@@ -1091,6 +1251,13 @@
   margin: 0 auto;
 }
 
+@media (max-width: 767px) {
+  .bridal-banner-content {
+    padding: 40px 16px;
+    text-align: center;
+  }
+}
+
 @media (min-width: 1024px) {
   .bridal-banner-content {
     margin-left: max(32px, calc((100% - 1280px) / 2 + 32px));
@@ -1114,6 +1281,14 @@
   margin-bottom: 20px;
 }
 
+@media (max-width: 640px) {
+  .bridal-eyebrow-pill {
+    font-size: 9px;
+    padding: 5px 12px;
+    margin-bottom: 14px;
+  }
+}
+
 .bridal-headline {
   font-family: var(--hl-font-serif);
   font-size: 32px;
@@ -1121,6 +1296,14 @@
   font-weight: 700;
   color: #FFF;
   margin: 0 0 16px;
+}
+
+@media (max-width: 640px) {
+  .bridal-headline {
+    font-size: 24px;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1136,11 +1319,27 @@
   margin: 0 0 28px;
 }
 
+@media (max-width: 640px) {
+  .bridal-subtext {
+    font-size: 13px;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+}
+
 .bridal-cta-group {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
   margin-bottom: 32px;
+}
+
+@media (max-width: 640px) {
+  .bridal-cta-group {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
 }
 
 .bridal-primary-btn {
@@ -1178,6 +1377,14 @@
   cursor: pointer;
 }
 
+@media (max-width: 640px) {
+  .bridal-primary-btn, .bridal-secondary-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+  }
+}
+
 .bridal-perks-row {
   display: flex;
   gap: 20px;
@@ -1186,6 +1393,15 @@
   color: #FFF3B0;
   border-top: 1px solid rgba(212, 175, 55, 0.3);
   padding-top: 20px;
+}
+
+@media (max-width: 640px) {
+  .bridal-perks-row {
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+    padding-top: 16px;
+  }
 }
 
 .perk-bullet {
@@ -1203,6 +1419,12 @@
   align-items: center;
 }
 
+@media (max-width: 767px) {
+  .story-split-grid {
+    gap: 28px;
+  }
+}
+
 @media (min-width: 992px) {
   .story-split-grid {
     grid-template-columns: 1fr 1fr;
@@ -1215,6 +1437,15 @@
   padding-bottom: 40px;
 }
 
+@media (max-width: 767px) {
+  .story-media-column {
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
 .story-image-main {
   position: relative;
   width: 90%;
@@ -1223,6 +1454,13 @@
   overflow: hidden;
   border: 1px solid var(--hl-ivory-border);
   box-shadow: var(--hl-shadow-hover);
+}
+
+@media (max-width: 767px) {
+  .story-image-main {
+    width: 100%;
+    aspect-ratio: 16/11;
+  }
 }
 
 .story-image-main img {
@@ -1250,11 +1488,26 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
+@media (max-width: 767px) {
+  .story-stamp-badge {
+    width: 60px;
+    height: 60px;
+    top: 10px;
+    right: 10px;
+  }
+}
+
 .stamp-year {
   font-family: var(--hl-font-display);
   font-size: 16px;
   font-weight: 800;
   line-height: 1;
+}
+
+@media (max-width: 767px) {
+  .stamp-year {
+    font-size: 13px;
+  }
 }
 
 .stamp-text {
@@ -1274,6 +1527,15 @@
   overflow: hidden;
   border: 4px solid var(--hl-ivory);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 767px) {
+  .story-image-secondary {
+    position: static;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: 1px solid var(--hl-ivory-border);
+  }
 }
 
 .story-image-secondary img {
@@ -1362,12 +1624,24 @@
   margin-bottom: 36px;
 }
 
+@media (max-width: 640px) {
+  .heritage-filter-bar {
+    margin-bottom: 20px;
+    justify-content: flex-start;
+  }
+}
+
 .filter-pill-scroll {
   display: flex;
   gap: 10px;
   overflow-x: auto;
   padding: 4px;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.filter-pill-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .heritage-filter-pill {
@@ -1384,6 +1658,13 @@
   transition: all 0.2s ease;
 }
 
+@media (max-width: 640px) {
+  .heritage-filter-pill {
+    padding: 7px 14px;
+    font-size: 11px;
+  }
+}
+
 .heritage-filter-pill.is-active, .heritage-filter-pill:hover {
   background: var(--hl-maroon);
   color: #FFF3B0;
@@ -1392,13 +1673,14 @@
 
 .heritage-product-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
 @media (min-width: 640px) {
   .heritage-product-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
@@ -1447,31 +1729,31 @@
 
 .prod-badge-stack {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 10px;
+  left: 10px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
   z-index: 2;
 }
 
 .prod-tag-pill {
   background: var(--hl-maroon);
   color: #FFF3B0;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 4px 10px;
+  padding: 3px 8px;
   border-radius: 20px;
 }
 
 .prod-certified-pill {
   background: var(--hl-emerald);
   color: #FFF;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
-  padding: 3px 8px;
+  padding: 3px 7px;
   border-radius: 20px;
   display: inline-flex;
   align-items: center;
@@ -1493,13 +1775,36 @@
   opacity: 1;
 }
 
-/* Mobile hint: always slightly visible on mobile */
+/* Hide obstructive gradient on mobile to keep saree weave 100% visible */
 @media (max-width: 767px) {
   .prod-zoom-overlay {
-    opacity: 1;
-    background: linear-gradient(0deg, rgba(74, 14, 23, 0.8) 0%, transparent 60%);
-    align-items: flex-end;
-    padding-bottom: 12px;
+    display: none !important;
+  }
+}
+
+.prod-mobile-zoom-pill {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .prod-mobile-zoom-pill {
+    display: flex;
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(50, 7, 13, 0.85);
+    border: 1px solid var(--hl-gold);
+    color: #FFF3B0;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 12px;
+    align-items: center;
+    gap: 3px;
+    z-index: 3;
+    pointer-events: none;
   }
 }
 
@@ -1519,10 +1824,16 @@
 }
 
 .prod-card-body {
-  padding: 20px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
   flex: 1;
+}
+
+@media (max-width: 639px) {
+  .prod-card-body {
+    padding: 10px 8px;
+  }
 }
 
 .prod-fabric-origin {
@@ -1535,6 +1846,13 @@
   margin-bottom: 6px;
 }
 
+@media (max-width: 639px) {
+  .prod-fabric-origin {
+    font-size: 9px;
+    margin-bottom: 3px;
+  }
+}
+
 .prod-name {
   font-family: var(--hl-font-serif);
   font-size: 17px;
@@ -1543,6 +1861,18 @@
   line-height: 1.35;
   margin: 0 0 8px;
   cursor: pointer;
+}
+
+@media (max-width: 639px) {
+  .prod-name {
+    font-size: 13px;
+    line-height: 1.3;
+    margin-bottom: 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 .prod-name:hover {
@@ -1561,12 +1891,27 @@
   flex: 1;
 }
 
+@media (max-width: 639px) {
+  .prod-card-snippet {
+    display: none; /* Hide verbose paragraph on mobile 2-col cards for cleaner look */
+  }
+}
+
 .prod-card-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-top: 14px;
   border-top: 1px solid var(--hl-ivory-border);
+}
+
+@media (max-width: 639px) {
+  .prod-card-bottom {
+    padding-top: 8px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
 }
 
 .prod-price-box {
@@ -1581,10 +1926,22 @@
   color: var(--hl-maroon);
 }
 
+@media (max-width: 639px) {
+  .prod-price-val {
+    font-size: 15px;
+  }
+}
+
 .prod-price-struck {
   font-size: 12px;
   color: #999;
   text-decoration: line-through;
+}
+
+@media (max-width: 639px) {
+  .prod-price-struck {
+    font-size: 10px;
+  }
 }
 
 .prod-enquire-btn {
@@ -1605,9 +1962,13 @@
   transition: all 0.2s ease;
 }
 
-.prod-enquire-btn:hover {
-  background: #1eb857;
-  transform: translateY(-1px);
+@media (max-width: 639px) {
+  .prod-enquire-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 7px 10px;
+    min-height: 36px;
+  }
 }
 
 /* ==========================================================================
@@ -1824,6 +2185,7 @@
   backdrop-filter: blur(12px);
   border-top: 1px solid var(--hl-gold);
   padding: 10px 16px;
+  padding-bottom: max(10px, env(safe-area-inset-bottom, 10px));
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
 }
 
@@ -1895,6 +2257,15 @@
   border: none;
   transition: all 0.2s ease;
   flex: 1;
+}
+
+@media (max-width: 639px) {
+  .sticky-whatsapp-btn, .sticky-call-btn {
+    padding: 10px 12px;
+    font-size: 11px;
+    min-height: 42px;
+    gap: 6px;
+  }
 }
 
 @media (min-width: 640px) {
